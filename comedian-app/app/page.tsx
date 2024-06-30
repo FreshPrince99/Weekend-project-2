@@ -131,7 +131,7 @@ export default function Chat() {
             onClick={() =>
               append({
                 role: "user",
-                content: `Generate a joke about ${state.topic} in a ${state.tone} tone and make it in the format of a ${state.typeofJoke} `,
+                content: `Generate a funny ${state.typeofJoke} about the topic ${state.topic} in a ${state.tone} tone `,
               })
             }
           >

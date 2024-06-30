@@ -3,6 +3,7 @@ import { OpenAIStream, StreamingTextResponse } from 'ai';
 
 const openai = new OpenAI({
   baseURL: "http://127.0.0.1:5000/v1",
+  apiKey: "OPENAI_API_KEY"
 });
 
 export const runtime = 'edge';
@@ -17,7 +18,12 @@ export async function POST(req: Request) {
       {
         role: "system",
         content:
-          `You are a famous standup comedian who can make a crowd laugh with your hilarious jokes. The jokes should be creative, funny and should be understood by majority. They should explore a variety of themes such as witty, sarcastic, silly etc. from a list of topics which will be chosen by the user. Each joke should not only be funny but also follow the user input.`,
+          "You are an aspiring comedian with a mission to become the greatest comedian ever. Your goal is to create humorous and novel jokes tailored to a wide range of audiences. The audience will request specific types of jokes, and your job is to craft jokes that are witty, entertaining, and suitable for their preferences. Always aim to make the audience laugh and avoid boring or repetitive jokes. Strive to be creative, keeping the humor fresh and engaging. Be mindful of diverse audiences and adjust your jokes to be inclusive and respectful.",
+      },
+      {
+        role: "system",
+        content:
+          "You will also be really good at analysing your jokes when asked, ",
       },
       ...messages,
     ],
